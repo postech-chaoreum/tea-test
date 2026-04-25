@@ -288,7 +288,7 @@ function ResultScreen({
     <main className="app-shell result-screen">
       <section className={`result-hero ${result.id}`}>
         <p className="eyebrow">{appConfig.appTitle}</p>
-        <div className="tea-symbol">{result.teaName}</div>
+        <TeaSymbol teaName={result.teaName} />
         <h1>{result.resultTitle}</h1>
         <p className="result-copy">{result.resultDescription}</p>
         <div className="tag-row">
@@ -352,13 +352,46 @@ function ResultScreen({
           </button>
         </div>
         <button className="primary-button wide" type="button" onClick={onRestart}>
-          다시하기
+          나도 검사하러 가기
         </button>
       </section>
 
       {topScores.length > 0 && <ScoreDetails topScores={topScores} />}
     </main>
   );
+}
+
+function TeaSymbol({ teaName }: { teaName: string }) {
+  const lines = getTeaSymbolLines(teaName);
+
+  return (
+    <div className="tea-symbol">
+      <span className={`tea-symbol-text ${lines.length > 1 ? "multi-line" : ""}`}>
+        {lines.map((line) => (
+          <React.Fragment key={line}>
+            {line}
+            <br />
+          </React.Fragment>
+        ))}
+      </span>
+    </div>
+  );
+}
+
+function getTeaSymbolLines(teaName: string) {
+  const overrides: Record<string, string[]> = {
+    "과일 블렌딩 티": ["과일", "블렌딩 티"],
+  };
+
+  if (overrides[teaName]) {
+    return overrides[teaName];
+  }
+
+  if (teaName.includes("/")) {
+    return teaName.split("/");
+  }
+
+  return [teaName];
 }
 
 function ScoreDetails({ topScores }: { topScores: ScoredResult[] }) {

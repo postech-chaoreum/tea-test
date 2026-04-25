@@ -3,6 +3,7 @@
 node_modules/
 dist/
 .npm-cache/
+artifacts/
 *.tsbuildinfo
 .env
 .env.*

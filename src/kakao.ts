@@ -129,7 +129,7 @@ function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput) {
         link: buildLink(resultUrl),
       },
       {
-        title: "나도 테스트하기",
+        title: "나도 검사하러 가기",
         link: buildLink(getTestHomeUrl()),
       },
     ],
@@ -152,6 +152,7 @@ function buildCustomTemplateArgs({ config, result, resultUrl }: KakaoShareInput)
     tags: result.tags.map((tag) => `#${tag}`).join(" "),
     recommended_style: result.recommendedStyle,
     result_url: resultUrl,
+    test_url: getTestHomeUrl(),
     image_url: getKakaoShareImageUrl(config),
   };
 }
