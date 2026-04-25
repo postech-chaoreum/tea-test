@@ -15,7 +15,7 @@
       "enabled": true,
       "method": "Kakao JavaScript SDK",
       "sdkUrl": "https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js",
-      "javascriptKey": "",
+      "javascriptKey": "5523c79ff35bafc30decc09cd06638b1",
       "shareMode": "default",
       "customTemplateId": null,
       "defaultImagePath": "/kakao-share-card.svg",
