@@ -1,0 +1,33 @@
+{
+  "appTitle": "차오름 차BTI",
+  "appSubtitle": "이 차는 이제 제겁니다",
+  "questionCount": 8,
+  "resultCount": 12,
+  "resultTitlePattern": "형용사 + 차 이름 + 타입",
+  "resultTone": "적당한 캐릭터화",
+  "visualTone": {
+    "campusFestival": 50,
+    "memeTest": 30,
+    "traditionalTea": 20
+  },
+  "sharing": {
+    "kakaoTalk": {
+      "enabled": true,
+      "method": "Kakao JavaScript SDK",
+      "requires": ["Kakao Developers app", "JavaScript key", "registered web domain"]
+    },
+    "nativeShare": {
+      "enabled": true,
+      "method": "Web Share API",
+      "fallbacks": ["copyLink", "downloadImage"]
+    },
+    "storyImage": {
+      "enabled": true,
+      "size": {
+        "width": 1080,
+        "height": 1920
+      },
+      "contentDensity": "resultTitle + twoLineDescription + twoTags"
+    }
+  }
+}

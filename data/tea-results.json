@@ -1,0 +1,322 @@
+[
+  {
+    "id": "greenTea",
+    "teaName": "녹차",
+    "resultTitle": "산뜻하고 차분한 녹차 타입",
+    "groups": ["greenTeas", "grassy", "clean", "light", "focused", "hotFriendly"],
+    "storyDescription": [
+      "맑고 깔끔한 취향을 가진 당신.",
+      "복잡한 분위기 속에서도 자기 리듬을 잃지 않아요."
+    ],
+    "resultDescription": "맑고 깔끔한 취향을 좋아하는 당신에게는 녹차가 잘 어울려요. 산뜻한 향과 담백한 맛이 부담 없이 이어져, 머리를 차분히 정리하고 싶을 때 좋은 선택이에요.",
+    "tags": ["깔끔한향", "차분한집중"],
+    "recommendedStyle": "따뜻하게 짧게 우려 산뜻한 향을 먼저 느껴보세요.",
+    "productRecommendations": [
+      {
+        "name": "세작",
+        "note": "부드럽고 산뜻한 한국 녹차를 느끼기 좋아요."
+      },
+      {
+        "name": "센차",
+        "note": "풀내음과 깔끔한 감칠맛이 또렷한 녹차예요."
+      }
+    ],
+    "bestMoment": "생각을 정리하거나 조용히 집중하고 싶을 때.",
+    "similarTeaIds": ["jasmineTea", "oolongTea"],
+    "priority": 12
+  },
+  {
+    "id": "matcha",
+    "teaName": "말차",
+    "resultTitle": "또렷하고 깊은 말차 타입",
+    "groups": ["greenTeas", "grassy", "rich", "bitter", "focused", "hotFriendly"],
+    "storyDescription": [
+      "부드러워 보여도 취향의 중심이 또렷한 당신.",
+      "한 번 꽂히면 깊게 즐기는 타입이에요."
+    ],
+    "resultDescription": "말차는 진한 향과 밀도 있는 맛이 매력인 차예요. 집중할 때는 또렷하게, 쉬어갈 때는 부드럽게 즐길 수 있어서 취향의 중심이 분명한 사람에게 잘 맞아요.",
+    "tags": ["진한취향", "몰입의맛"],
+    "recommendedStyle": "진하게 격불해 마시거나 우유와 섞어 말차 라떼로 즐겨보세요.",
+    "productRecommendations": [
+      {
+        "name": "말차",
+        "note": "진한 풀향과 쌉싸름한 맛을 직접 느끼기 좋아요."
+      },
+      {
+        "name": "말차 라떼",
+        "note": "말차의 진함을 부드럽게 즐기기 좋은 방식이에요."
+      }
+    ],
+    "bestMoment": "무언가에 몰입하고 싶거나 진한 한 잔이 필요할 때.",
+    "similarTeaIds": ["greenTea", "hojicha"],
+    "priority": 1
+  },
+  {
+    "id": "hojicha",
+    "teaName": "호지차",
+    "resultTitle": "포근하고 구수한 호지차 타입",
+    "groups": ["greenTeas", "roasted", "nutty", "cozy", "hotFriendly"],
+    "storyDescription": [
+      "편안한 분위기를 좋아하지만 밋밋한 건 싫은 당신.",
+      "구수하고 따뜻한 여운이 잘 맞아요."
+    ],
+    "resultDescription": "호지차는 볶은 찻잎의 구수한 향이 매력적인 차예요. 편안하지만 심심하지 않고, 따뜻한 분위기를 만들어주는 맛이라 쉬어가는 시간에 잘 어울려요.",
+    "tags": ["구수한안정감", "따뜻한휴식"],
+    "recommendedStyle": "따뜻하게 마셔도 좋고, 우유와 섞어 호지차 라떼로 마셔도 좋아요.",
+    "productRecommendations": [
+      {
+        "name": "호지차",
+        "note": "볶은 녹차의 구수한 향을 가장 잘 느낄 수 있어요."
+      },
+      {
+        "name": "호지차 라떼",
+        "note": "고소하고 부드러운 맛을 좋아한다면 잘 맞아요."
+      }
+    ],
+    "bestMoment": "긴장이 풀리는 따뜻한 한 잔이 필요할 때.",
+    "similarTeaIds": ["rooibos", "matcha"],
+    "priority": 4
+  },
+  {
+    "id": "jasmineTea",
+    "teaName": "재스민차",
+    "resultTitle": "은은하고 다정한 재스민차 타입",
+    "groups": ["greenTeas", "floral", "light", "calm", "hotFriendly"],
+    "storyDescription": [
+      "튀지 않아도 오래 기억되는 취향을 가진 당신.",
+      "부드러운 향과 차분한 분위기를 자연스럽게 골라요."
+    ],
+    "resultDescription": "재스민차는 은은한 꽃향과 가벼운 차의 맛이 조화로운 차예요. 향은 분명하지만 과하지 않아서, 부드럽고 섬세한 취향을 가진 사람에게 잘 어울려요.",
+    "tags": ["은은한꽃향", "부드러운여운"],
+    "recommendedStyle": "따뜻하게 우려 향이 천천히 퍼지는 순간을 즐겨보세요.",
+    "productRecommendations": [
+      {
+        "name": "재스민 그린티",
+        "note": "녹차의 산뜻함과 재스민 향을 함께 느낄 수 있어요."
+      },
+      {
+        "name": "재스민 펄",
+        "note": "은은하고 고급스러운 꽃향을 즐기기 좋아요."
+      }
+    ],
+    "bestMoment": "조용하지만 기분 좋은 향이 필요할 때.",
+    "similarTeaIds": ["greenTea", "chamomile"],
+    "priority": 5
+  },
+  {
+    "id": "earlGrey",
+    "teaName": "얼그레이",
+    "resultTitle": "선명하고 산뜻한 얼그레이 타입",
+    "groups": ["blackTeas", "citrusy", "floral", "clean", "refreshing", "hotFriendly"],
+    "storyDescription": [
+      "깔끔한데 심심하지 않은 취향을 가진 당신.",
+      "익숙한 선택 안에서도 자기만의 포인트를 찾아요."
+    ],
+    "resultDescription": "얼그레이는 홍차의 깊이에 베르가못의 산뜻한 향이 더해진 차예요. 깔끔하면서도 개성이 살아 있어서, 익숙한 듯 특별한 한 잔을 좋아하는 사람에게 잘 맞아요.",
+    "tags": ["시트러스향", "깔끔한개성"],
+    "recommendedStyle": "따뜻하게 마시면 향이 또렷하고, 아이스로 마시면 산뜻함이 살아나요.",
+    "productRecommendations": [
+      {
+        "name": "클래식 얼그레이",
+        "note": "베르가못 향이 선명한 기본형 얼그레이예요."
+      },
+      {
+        "name": "레이디 그레이",
+        "note": "더 가볍고 산뜻한 향을 좋아한다면 잘 맞아요."
+      }
+    ],
+    "bestMoment": "기분을 깔끔하게 전환하고 싶을 때.",
+    "similarTeaIds": ["fruitBlend", "jasmineTea"],
+    "priority": 2
+  },
+  {
+    "id": "assamMilkTea",
+    "teaName": "밀크티",
+    "resultTitle": "든든하고 부드러운 밀크티 타입",
+    "groups": ["blackTeas", "rich", "sweet", "cozy", "hotFriendly"],
+    "storyDescription": [
+      "진한 맛과 안정감을 좋아하는 당신.",
+      "작은 보상 같은 한 잔이 잘 어울려요."
+    ],
+    "resultDescription": "밀크티는 진한 홍차와 부드러운 우유가 만나는 차예요. 든든하고 달큰한 맛이 있어, 차 한 잔에서도 확실한 만족감을 원하는 사람에게 잘 맞아요.",
+    "tags": ["부드러운진함", "달콤한충전"],
+    "recommendedStyle": "아삼이나 잉글리시 브렉퍼스트를 진하게 우려 우유와 함께 즐겨보세요.",
+    "productRecommendations": [
+      {
+        "name": "아삼 CTC",
+        "note": "진한 밀크티를 만들기 좋은 홍차예요."
+      },
+      {
+        "name": "잉글리시 브렉퍼스트",
+        "note": "우유와 잘 어울리는 클래식한 블렌드예요."
+      }
+    ],
+    "bestMoment": "든든하고 달콤한 한 잔이 필요할 때.",
+    "similarTeaIds": ["hojicha", "puerhTea"],
+    "priority": 6
+  },
+  {
+    "id": "oolongTea",
+    "teaName": "우롱차",
+    "resultTitle": "여유롭고 입체적인 우롱차 타입",
+    "groups": ["oolongTeas", "floral", "nutty", "clean", "adventurous"],
+    "storyDescription": [
+      "익숙한 듯 낯선 것을 좋아하는 당신.",
+      "한 모금마다 다른 매력을 발견하는 타입이에요."
+    ],
+    "resultDescription": "우롱차는 향과 맛의 폭이 넓어 마실수록 새로운 면이 보이는 차예요. 너무 가볍지도, 너무 무겁지도 않은 균형감 덕분에 여유롭게 탐색하는 취향에 잘 어울려요.",
+    "tags": ["입체적인향", "은근한모험"],
+    "recommendedStyle": "여러 번 우려 마시며 향과 맛이 달라지는 변화를 느껴보세요.",
+    "productRecommendations": [
+      {
+        "name": "철관음",
+        "note": "꽃향과 깔끔한 여운을 느끼기 좋은 우롱차예요."
+      },
+      {
+        "name": "동방미인",
+        "note": "달큰하고 독특한 향을 가진 우롱차예요."
+      },
+      {
+        "name": "밀키 우롱",
+        "note": "부드러운 향을 좋아한다면 접근하기 좋아요."
+      }
+    ],
+    "bestMoment": "새로운 취향을 천천히 발견하고 싶을 때.",
+    "similarTeaIds": ["greenTea", "puerhTea"],
+    "priority": 8
+  },
+  {
+    "id": "puerhTea",
+    "teaName": "보이차",
+    "resultTitle": "깊고 묵직한 보이차 타입",
+    "groups": ["puerhTeas", "earthy", "rich", "calm", "adventurous"],
+    "storyDescription": [
+      "오래 남는 여운을 좋아하는 당신.",
+      "차분하고 깊은 맛이 잘 맞아요."
+    ],
+    "resultDescription": "보이차는 깊고 묵직한 향, 오래 남는 여운이 매력적인 차예요. 가볍게 지나가는 맛보다 차분하게 쌓이는 맛을 좋아하는 사람에게 잘 어울려요.",
+    "tags": ["깊은여운", "묵직한취향"],
+    "recommendedStyle": "따뜻하게 천천히 마시며 흙내음과 깊은 여운을 느껴보세요.",
+    "productRecommendations": [
+      {
+        "name": "숙보이차",
+        "note": "부드럽고 묵직한 향으로 입문하기 좋아요."
+      },
+      {
+        "name": "생보이차",
+        "note": "더 선명하고 변화감 있는 보이차를 원할 때 좋아요."
+      }
+    ],
+    "bestMoment": "깊고 조용한 여운이 남는 한 잔이 필요할 때.",
+    "similarTeaIds": ["oolongTea", "assamMilkTea"],
+    "priority": 7
+  },
+  {
+    "id": "rooibos",
+    "teaName": "루이보스",
+    "resultTitle": "편안하고 달큰한 루이보스 타입",
+    "groups": ["herbalTeas", "sweet", "cozy", "calm", "hotFriendly"],
+    "storyDescription": [
+      "부담 없이 편안한 것을 좋아하는 당신.",
+      "조용히 쉬어가는 시간에 잘 어울려요."
+    ],
+    "resultDescription": "루이보스는 달큰하고 부드러운 향이 특징인 허브티예요. 카페인이 부담스럽거나, 편안하게 마실 수 있는 한 잔을 찾는 사람에게 잘 맞아요.",
+    "tags": ["달큰한휴식", "편안한선택"],
+    "recommendedStyle": "따뜻하게 마시면 부드러운 단맛이 잘 살아나요.",
+    "productRecommendations": [
+      {
+        "name": "루이보스",
+        "note": "부담 없이 마시기 좋은 기본 허브티예요."
+      },
+      {
+        "name": "바닐라 루이보스",
+        "note": "더 달큰하고 포근한 향을 원한다면 좋아요."
+      }
+    ],
+    "bestMoment": "카페인 부담 없이 편안하게 쉬고 싶을 때.",
+    "similarTeaIds": ["chamomile", "hojicha"],
+    "priority": 10
+  },
+  {
+    "id": "fruitBlend",
+    "teaName": "과일 블렌딩 티",
+    "resultTitle": "밝고 경쾌한 과일 블렌딩 타입",
+    "groups": ["fruitTeas", "fruity", "sweet", "refreshing", "icedFriendly"],
+    "storyDescription": [
+      "분위기를 산뜻하게 바꾸는 선택을 좋아하는 당신.",
+      "달콤하고 선명한 향에 자연스럽게 끌려요."
+    ],
+    "resultDescription": "과일 블렌딩 티는 향이 또렷하고 기분 전환이 쉬운 차예요. 산뜻하고 달콤한 느낌을 좋아하거나, 차를 가볍게 시작하고 싶은 사람에게 잘 어울려요.",
+    "tags": ["상큼한전환", "기분업"],
+    "recommendedStyle": "아이스로 마시면 과일향이 더 경쾌하게 살아나요.",
+    "productRecommendations": [
+      {
+        "name": "사쿠란보",
+        "note": "체리향이 또렷한 가향차로, 달콤한 향을 좋아한다면 잘 맞아요."
+      },
+      {
+        "name": "피치 티",
+        "note": "복숭아 향을 가볍고 산뜻하게 즐기기 좋아요."
+      },
+      {
+        "name": "베리 블렌드",
+        "note": "새콤달콤한 향이 선명한 과일 블렌드예요."
+      }
+    ],
+    "bestMoment": "기분을 밝게 바꾸고 싶거나 아이스티가 당길 때.",
+    "similarTeaIds": ["earlGrey", "mintTea"],
+    "priority": 3
+  },
+  {
+    "id": "chamomile",
+    "teaName": "캐모마일",
+    "resultTitle": "조용하고 느긋한 캐모마일 타입",
+    "groups": ["herbalTeas", "floral", "light", "calm", "hotFriendly"],
+    "storyDescription": [
+      "천천히 풀리는 시간을 좋아하는 당신.",
+      "부드러운 향과 편안함이 잘 맞아요."
+    ],
+    "resultDescription": "캐모마일은 부드러운 꽃향과 편안한 분위기가 매력인 허브티예요. 자극적인 맛보다 조용히 쉬어가는 느낌을 좋아하는 사람에게 잘 어울려요.",
+    "tags": ["느긋한쉼", "부드러운꽃향"],
+    "recommendedStyle": "따뜻하게 마시며 은은한 꽃향을 천천히 느껴보세요.",
+    "productRecommendations": [
+      {
+        "name": "캐모마일",
+        "note": "부드럽고 편안한 꽃향을 느끼기 좋아요."
+      },
+      {
+        "name": "캐모마일 블렌드",
+        "note": "다른 허브와 섞인 부드러운 조합도 잘 어울려요."
+      }
+    ],
+    "bestMoment": "하루의 속도를 조금 늦추고 싶을 때.",
+    "similarTeaIds": ["rooibos", "jasmineTea"],
+    "priority": 11
+  },
+  {
+    "id": "mintTea",
+    "teaName": "민트티",
+    "resultTitle": "시원하고 맑은 민트티 타입",
+    "groups": ["herbalTeas", "minty", "clean", "refreshing", "icedFriendly"],
+    "storyDescription": [
+      "답답한 분위기를 가볍게 환기하는 걸 좋아하는 당신.",
+      "선명하고 산뜻한 리셋감이 잘 맞아요."
+    ],
+    "resultDescription": "민트티는 시원하고 깔끔한 향이 매력인 허브티예요. 무겁게 남는 맛보다 산뜻하게 정리되는 느낌을 좋아하는 사람에게 잘 어울려요.",
+    "tags": ["맑은리셋", "시원한기분"],
+    "recommendedStyle": "아이스로 마시면 시원함이 또렷하고, 따뜻하게 마시면 깔끔한 향이 살아나요.",
+    "productRecommendations": [
+      {
+        "name": "페퍼민트",
+        "note": "시원하고 선명한 민트향을 가장 잘 느낄 수 있어요."
+      },
+      {
+        "name": "모로칸 민트",
+        "note": "민트와 차의 조합을 더 부드럽게 즐기기 좋아요."
+      }
+    ],
+    "bestMoment": "기분을 가볍게 리셋하고 싶을 때.",
+    "similarTeaIds": ["fruitBlend", "earlGrey"],
+    "priority": 9
+  }
+]
