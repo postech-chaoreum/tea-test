@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#f4efe4"/>
+  <circle cx="625" cy="155" r="150" fill="#d7e2ab"/>
+  <circle cx="210" cy="620" r="210" fill="#ead4bd"/>
+  <g fill="#83a95c" opacity="0.2">
+    <ellipse cx="115" cy="140" rx="21" ry="56" transform="rotate(-32 115 140)"/>
+    <ellipse cx="700" cy="520" rx="21" ry="56" transform="rotate(24 700 520)"/>
+    <ellipse cx="510" cy="682" rx="21" ry="56" transform="rotate(-18 510 682)"/>
+    <ellipse cx="330" cy="120" rx="21" ry="56" transform="rotate(38 330 120)"/>
+  </g>
+  <circle cx="400" cy="372" r="185" fill="#2f4f30"/>
+  <circle cx="400" cy="372" r="135" fill="#fffaf0" opacity="0.22"/>
+  <text x="400" y="342" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="48" font-weight="800" fill="#fffaf0">차오름</text>
+  <text x="400" y="423" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="86" font-weight="900" fill="#fffaf0">차BTI</text>
+  <text x="400" y="602" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="34" font-weight="700" fill="#3e3328">이 차는 이제 제겁니다</text>
+  <text x="400" y="654" text-anchor="middle" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" font-size="27" font-weight="500" fill="#6b5d50">나에게 어울리는 차를 찾아보세요</text>
+</svg>

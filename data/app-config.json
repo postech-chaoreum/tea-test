@@ -14,6 +14,11 @@
     "kakaoTalk": {
       "enabled": true,
       "method": "Kakao JavaScript SDK",
+      "sdkUrl": "https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js",
+      "javascriptKey": "",
+      "shareMode": "default",
+      "customTemplateId": null,
+      "defaultImagePath": "/kakao-share-card.svg",
       "requires": ["Kakao Developers app", "JavaScript key", "registered web domain"]
     },
     "nativeShare": {

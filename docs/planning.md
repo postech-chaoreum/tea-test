@@ -11,11 +11,14 @@
 ## 기술 방향
 
 - 정적 웹앱으로 구현한다.
-- 추천 스택: Vite + React + TypeScript
+- 현재 MVP: Vite + React + TypeScript
 - 배포: GitHub Pages
 - 데이터: JSON 또는 TypeScript 상수로 관리한다.
 - 공유:
   - 카카오톡: Kakao JavaScript SDK 사용
+    - 기본 템플릿: `Kakao.Share.sendDefault`
+    - 커스텀 템플릿: `Kakao.Share.sendCustom`
+    - `data/app-config.json`에 JavaScript 키와 템플릿 ID를 넣어 활성화
   - 일반 공유: Web Share API 사용
   - 인스타그램/스토리: 1080x1920 결과 카드 이미지 생성 후 저장/공유
   - fallback: 링크 복사, 이미지 다운로드
@@ -74,3 +77,9 @@
 
 - `data/tea-results.json`: 결과 12종, 그룹, 문구, 추천 차/제품, 우선순위
 - `data/questions.json`: 질문 8개, 선지, 그룹 점수, 개별 차 보정 점수
+- `index.html`: Vite 앱 진입점
+- `src/main.tsx`: 테스트 플로우와 화면 컴포넌트
+- `src/kakao.ts`: 카카오톡 공유 SDK 로딩과 템플릿 전송
+- `src/scoring.ts`: 결과 계산 로직
+- `src/storyImage.ts`: 스토리 이미지 생성
+- `src/styles.css`: 모바일 우선 UI 스타일

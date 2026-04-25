@@ -22,12 +22,13 @@
         "text": "은은하게 퍼지는 꽃향",
         "scores": {
           "groups": {
-            "floral": 3,
+            "floral": 4,
             "calm": 1,
+            "greenTeas": 1,
             "herbalTeas": 1
           },
           "teas": {
-            "jasmineTea": 1,
+            "jasmineTea": 2,
             "chamomile": 1
           }
         }
@@ -259,7 +260,7 @@
             "light": 1
           },
           "teas": {
-            "chamomile": 1
+            "chamomile": 3
           }
         }
       },
@@ -379,7 +380,9 @@
             "hotFriendly": 3,
             "cozy": 1
           },
-          "teas": {}
+          "teas": {
+            "chamomile": 1
+          }
         }
       },
       {
@@ -415,7 +418,9 @@
             "grassy": 1,
             "roasted": 1
           },
-          "teas": {}
+          "teas": {
+            "jasmineTea": 1
+          }
         }
       }
     ]
