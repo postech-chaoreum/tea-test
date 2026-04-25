@@ -20,13 +20,17 @@ npm run dev
 
 브라우저에서 `http://127.0.0.1:5173`을 열면 됩니다.
 
-현재 Windows 환경에서 npm script가 PATH의 다른 Node shim을 집는 문제를 피하기 위해, `package.json` scripts는 `C:\Progra~1\nodejs\node.exe`를 직접 사용합니다.
-
 ## 빌드
 
 ```powershell
 npm run build
 ```
+
+## GitHub Pages 배포
+
+`.github/workflows/deploy-pages.yml`가 `main` 브랜치 푸시마다 `dist`를 빌드해 GitHub Pages에 배포합니다.
+
+GitHub repository settings에서 Pages source를 `GitHub Actions`로 설정하세요.
 
 ## 데이터
 

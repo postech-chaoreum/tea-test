@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "C:\\Progra~1\\nodejs\\node.exe node_modules/vite/bin/vite.js --host 127.0.0.1",
-    "build": "C:\\Progra~1\\nodejs\\node.exe node_modules/typescript/bin/tsc --noEmit && C:\\Progra~1\\nodejs\\node.exe node_modules/vite/bin/vite.js build",
-    "preview": "C:\\Progra~1\\nodejs\\node.exe node_modules/vite/bin/vite.js preview --host 127.0.0.1"
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.4",
