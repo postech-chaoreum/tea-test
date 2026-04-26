@@ -1,4 +1,5 @@
 import type { AppConfig, TeaResult } from "./types";
+import { getStoryImageUrl } from "./storyImage";
 
 type KakaoSharePayload = Record<string, unknown>;
 
@@ -83,7 +84,7 @@ function loadKakaoSdk(sdkUrl: string) {
 }
 
 function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput) {
-  const imageUrl = getKakaoShareImageUrl(config);
+  const imageUrl = getKakaoShareImageUrl(config, result);
   const description = result.storyDescription.join(" ");
   const firstProduct = result.productRecommendations[0]?.name ?? result.teaName;
 
@@ -153,7 +154,7 @@ function buildCustomTemplateArgs({ config, result, resultUrl }: KakaoShareInput)
     recommended_style: result.recommendedStyle,
     result_url: resultUrl,
     test_url: getTestHomeUrl(),
-    image_url: getKakaoShareImageUrl(config),
+    image_url: getKakaoShareImageUrl(config, result),
   };
 }
 
@@ -171,7 +172,11 @@ function getTestHomeUrl() {
   return url.toString();
 }
 
-function getKakaoShareImageUrl(config: AppConfig) {
+function getKakaoShareImageUrl(config: AppConfig, result: TeaResult) {
+  if (config.sharing.storyImage.enabled) {
+    return getStoryImageUrl(result.id);
+  }
+
   const imagePath = config.sharing.kakaoTalk.defaultImagePath;
   if (/^https?:\/\//.test(imagePath)) {
     return imagePath;

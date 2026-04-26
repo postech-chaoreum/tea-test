@@ -20,7 +20,7 @@
     - 커스텀 템플릿: `Kakao.Share.sendCustom`
     - `data/app-config.json`에 JavaScript 키와 템플릿 ID를 넣어 활성화
   - 일반 공유: Web Share API 사용
-  - 인스타그램/스토리: 1080x1920 결과 카드 이미지 생성 후 저장/공유
+  - 인스타그램/스토리: 결과 페이지 첫 화면을 결과별 정적 이미지로 미리 저장해 두고 저장/공유
   - fallback: 링크 복사, 이미지 다운로드
 
 ## 테스트 구성
@@ -81,5 +81,6 @@
 - `src/main.tsx`: 테스트 플로우와 화면 컴포넌트
 - `src/kakao.ts`: 카카오톡 공유 SDK 로딩과 템플릿 전송
 - `src/scoring.ts`: 결과 계산 로직
-- `src/storyImage.ts`: 스토리 이미지 생성
+- `public/story-images/`: 결과별 정적 공유 이미지
+- `src/storyImage.ts`: 결과별 정적 공유 이미지 경로와 다운로드 로딩
 - `src/styles.css`: 모바일 우선 UI 스타일

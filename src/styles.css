@@ -59,6 +59,7 @@ button {
   overflow: hidden;
   padding: 42px 26px 30px;
   text-align: center;
+  isolation: isolate;
 }
 
 .hero::before {
@@ -68,7 +69,14 @@ button {
   height: 260px;
   border-radius: 50%;
   background: rgba(209, 159, 76, 0.22);
+  pointer-events: none;
+  z-index: 0;
   content: "";
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .brand-mark {
