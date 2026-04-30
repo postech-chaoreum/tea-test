@@ -1,38 +1,22 @@
 import type { AppConfig, TeaResult } from "./types";
 import { getStoryImageUrl } from "./storyImage";
 
-type KakaoWebLink = {
-  mobileWebUrl: string;
-  webUrl: string;
-};
+type KakaoSharePayload = Record<string, unknown>;
 
-type KakaoFeedTemplate = {
-  objectType: "feed";
-  content: {
-    title: string;
-    description: string;
-    imageUrl: string;
-    imageWidth: number;
-    imageHeight: number;
-    link: KakaoWebLink;
-  };
-  buttons: Array<{
-    title: string;
-    link: KakaoWebLink;
-  }>;
+type KakaoScrapPayload = {
+  requestUrl: string;
+  templateId?: number;
+  templateArgs?: KakaoSharePayload;
   serverCallbackArgs: {
     result_id: string;
   };
 };
 
-type KakaoSharePayload = Record<string, unknown>;
-
 type KakaoSdk = {
   init: (javascriptKey: string) => void;
   isInitialized: () => boolean;
   Share: {
-    sendDefault: (payload: KakaoFeedTemplate) => void;
-    sendCustom: (payload: KakaoSharePayload) => void;
+    sendScrap: (payload: KakaoScrapPayload) => void;
   };
 };
 
@@ -68,18 +52,23 @@ export async function shareToKakao({ config, result, resultUrl }: KakaoShareInpu
     Kakao.init(kakaoConfig.javascriptKey);
   }
 
+  const payload: KakaoScrapPayload = {
+    requestUrl: getKakaoScrapUrl(result),
+    serverCallbackArgs: {
+      result_id: result.id,
+    },
+  };
+
   if (kakaoConfig.shareMode === "custom" && kakaoConfig.customTemplateId) {
-    Kakao.Share.sendCustom({
+    Kakao.Share.sendScrap({
+      ...payload,
       templateId: kakaoConfig.customTemplateId,
       templateArgs: buildCustomTemplateArgs({ config, result, resultUrl }),
-      serverCallbackArgs: {
-        result_id: result.id,
-      },
     });
     return;
   }
 
-  Kakao.Share.sendDefault(buildDefaultTemplate({ config, result, resultUrl }));
+  Kakao.Share.sendScrap(payload);
 }
 
 function loadKakaoSdk(sdkUrl: string) {
@@ -109,38 +98,6 @@ function loadKakaoSdk(sdkUrl: string) {
   return sdkLoadPromise;
 }
 
-function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput): KakaoFeedTemplate {
-  const imageUrl = getKakaoShareImageUrl(config, result);
-  const canonicalResultUrl = getCanonicalSiteUrl(resultUrl);
-  const canonicalHomeUrl = getCanonicalSiteUrl(getTestHomeUrl());
-  const description = result.storyDescription.join(" ");
-
-  return {
-    objectType: "feed",
-    content: {
-      title: result.resultTitle,
-      description,
-      imageUrl,
-      imageWidth: 800,
-      imageHeight: 800,
-      link: buildLink(canonicalResultUrl),
-    },
-    buttons: [
-      {
-        title: "웹으로 보기",
-        link: buildLink(canonicalResultUrl),
-      },
-      {
-        title: "나도 검사하기",
-        link: buildLink(canonicalHomeUrl),
-      },
-    ],
-    serverCallbackArgs: {
-      result_id: result.id,
-    },
-  };
-}
-
 function buildCustomTemplateArgs({ config, result, resultUrl }: KakaoShareInput) {
   return {
     app_title: config.appTitle,
@@ -153,16 +110,9 @@ function buildCustomTemplateArgs({ config, result, resultUrl }: KakaoShareInput)
     tag_2: `#${result.tags[1] ?? "차오름"}`,
     tags: result.tags.map((tag) => `#${tag}`).join(" "),
     recommended_style: result.recommendedStyle,
-    result_url: resultUrl,
-    test_url: getTestHomeUrl(),
+    result_url: getCanonicalSiteUrl(resultUrl),
+    test_url: getCanonicalSiteUrl(getTestHomeUrl()),
     image_url: getKakaoShareImageUrl(config, result),
-  };
-}
-
-function buildLink(url: string): KakaoWebLink {
-  return {
-    mobileWebUrl: url,
-    webUrl: url,
   };
 }
 
@@ -171,6 +121,10 @@ function getTestHomeUrl() {
   url.search = "";
   url.hash = "";
   return url.toString();
+}
+
+function getKakaoScrapUrl(result: TeaResult) {
+  return new URL(`share/${encodeURIComponent(result.id)}/`, productionSiteUrl).toString();
 }
 
 function getKakaoShareImageUrl(config: AppConfig, result: TeaResult) {
