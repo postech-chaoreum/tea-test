@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const siteBaseUrl = "https://postech-chaoreum.github.io/tea-test/";
+const kakaoScrapVersion = "20260430-site-name";
 const appConfig = JSON.parse(fs.readFileSync(path.resolve("data/app-config.json"), "utf8"));
 const results = JSON.parse(fs.readFileSync(path.resolve("data/tea-results.json"), "utf8"));
 const outputDir = path.resolve("public/share");
@@ -9,29 +10,34 @@ const outputDir = path.resolve("public/share");
 fs.rmSync(outputDir, { recursive: true, force: true });
 
 for (const result of results) {
-  const resultDir = path.join(outputDir, result.id);
-  fs.mkdirSync(resultDir, { recursive: true });
-
   const description = result.storyDescription.join(" ");
   const homeUrl = new URL(siteBaseUrl).toString();
-  const shareUrl = new URL(`share/${encodeURIComponent(result.id)}/`, siteBaseUrl).toString();
   const imageUrl = new URL(`story-images/${encodeURIComponent(result.id)}.png`, siteBaseUrl).toString();
+  const sharePaths = [
+    `${encodeURIComponent(result.id)}/`,
+    `${kakaoScrapVersion}/${encodeURIComponent(result.id)}/`,
+  ];
 
-  fs.writeFileSync(
-    path.join(resultDir, "index.html"),
-    buildSharePage({
-      appTitle: appConfig.appTitle,
-      description,
-      homeUrl,
-      imageUrl,
-      resultTitle: result.resultTitle,
-      shareUrl,
-      teaName: result.teaName,
-    }),
-  );
+  for (const sharePath of sharePaths) {
+    const resultDir = path.join(outputDir, sharePath);
+    fs.mkdirSync(resultDir, { recursive: true });
+
+    fs.writeFileSync(
+      path.join(resultDir, "index.html"),
+      buildSharePage({
+        appTitle: appConfig.appTitle,
+        description,
+        homeUrl,
+        imageUrl,
+        resultTitle: result.resultTitle,
+        shareUrl: new URL(`share/${sharePath}`, siteBaseUrl).toString(),
+        teaName: result.teaName,
+      }),
+    );
+  }
 }
 
-console.log(`Generated ${results.length} Kakao scrap pages.`);
+console.log(`Generated ${results.length * 2} Kakao scrap pages.`);
 
 function buildSharePage({
   appTitle,

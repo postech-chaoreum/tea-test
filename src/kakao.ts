@@ -33,6 +33,7 @@ type KakaoShareInput = {
 };
 
 const productionSiteUrl = "https://postech-chaoreum.github.io/tea-test/";
+const kakaoScrapVersion = "20260430-site-name";
 
 let sdkLoadPromise: Promise<KakaoSdk> | null = null;
 
@@ -124,7 +125,10 @@ function getTestHomeUrl() {
 }
 
 function getKakaoScrapUrl(result: TeaResult) {
-  return new URL(`share/${encodeURIComponent(result.id)}/`, productionSiteUrl).toString();
+  return new URL(
+    `share/${kakaoScrapVersion}/${encodeURIComponent(result.id)}/`,
+    productionSiteUrl,
+  ).toString();
 }
 
 function getKakaoShareImageUrl(config: AppConfig, result: TeaResult) {
