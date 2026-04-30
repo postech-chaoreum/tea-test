@@ -54,7 +54,7 @@ function buildSharePage({
     <link rel="canonical" href="${escapeAttribute(homeUrl)}" />
     <meta name="description" content="${escapeAttribute(description)}" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="나도 검사하러가기" />
+    <meta property="og:site_name" content="${escapeAttribute(appTitle)}" />
     <meta property="og:title" content="${escapeAttribute(title)}" />
     <meta property="og:description" content="${escapeAttribute(description)}" />
     <meta property="og:image" content="${escapeAttribute(imageUrl)}" />
@@ -75,7 +75,7 @@ function buildSharePage({
       <h1>${escapeHtml(resultTitle)}</h1>
       <p>${escapeHtml(description)}</p>
       <p>${escapeHtml(teaName)} 결과를 확인하고 차BTI를 시작합니다.</p>
-      <a href="${escapeAttribute(homeUrl)}">나도 검사하러가기</a>
+      <a href="${escapeAttribute(homeUrl)}">${escapeHtml(appTitle)}</a>
     </main>
   </body>
 </html>
