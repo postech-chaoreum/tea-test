@@ -9,6 +9,46 @@ import "./styles.css";
 
 type Step = "start" | "question" | "result";
 
+type ResultCharacterAsset = {
+  src: string;
+  position: string;
+};
+
+const resultCharacterAssets: Record<string, ResultCharacterAsset> = {
+  green_tea_ujeon: {
+    src: `${import.meta.env.BASE_URL}characters/green_tea_ujeon.jpg`,
+    position: "50% 70%",
+  },
+  white_tea_baihao_yinzhen: {
+    src: `${import.meta.env.BASE_URL}characters/white_tea_baihao_yinzhen.jpg`,
+    position: "50% 68%",
+  },
+  oolong_tea_dahongpao: {
+    src: `${import.meta.env.BASE_URL}characters/oolong_tea_dahongpao.jpg`,
+    position: "50% 50%",
+  },
+  oolong_tea_oriental_beauty: {
+    src: `${import.meta.env.BASE_URL}characters/oolong_tea_oriental_beauty.jpg`,
+    position: "50% 50%",
+  },
+  black_tea_darjeeling: {
+    src: `${import.meta.env.BASE_URL}characters/black_tea_darjeeling.jpg`,
+    position: "50% 48%",
+  },
+  dark_tea_ripe_puer: {
+    src: `${import.meta.env.BASE_URL}characters/dark_tea_ripe_puer.jpg`,
+    position: "50% 58%",
+  },
+  herbal_tea_peppermint: {
+    src: `${import.meta.env.BASE_URL}characters/herbal_tea_peppermint.jpg`,
+    position: "50% 66%",
+  },
+  powdered_tea_matcha: {
+    src: `${import.meta.env.BASE_URL}characters/powdered_tea_matcha.jpg`,
+    position: "50% 66%",
+  },
+};
+
 function getInitialResult() {
   const resultId = new URLSearchParams(window.location.search).get("result");
   return teaResults.find((result) => result.id === resultId) ?? null;
@@ -32,6 +72,7 @@ function clearResultUrl() {
 
 function App() {
   const initialResult = getInitialResult();
+  const isStoryCapture = new URLSearchParams(window.location.search).get("capture") === "story";
   const [step, setStep] = useState<Step>(initialResult ? "result" : "start");
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Answer[]>([]);
@@ -69,6 +110,16 @@ function App() {
     setResult(null);
     setScoredResults([]);
     clearResultUrl();
+  };
+
+  const goToStart = () => {
+    setStep("start");
+    setQuestionIndex(0);
+    setSelectedAnswers([]);
+    setResult(null);
+    setScoredResults([]);
+    clearResultUrl();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const chooseAnswer = (answer: Answer) => {
@@ -167,6 +218,10 @@ function App() {
     await downloadStoryImage();
   };
 
+  if (isStoryCapture && initialResult) {
+    return <StoryCaptureScreen result={initialResult} />;
+  }
+
   return (
     <>
       {step === "start" && <StartScreen onStart={startTest} />}
@@ -184,7 +239,7 @@ function App() {
           onCopyResultLink={copyResultLink}
           onDownloadStoryImage={downloadStoryImage}
           onOpenSimilarResult={openSimilarResult}
-          onRestart={startTest}
+          onRestart={goToStart}
           onShareKakaoResult={shareResult}
           onShareStoryImage={shareStoryImage}
         />
@@ -194,15 +249,57 @@ function App() {
   );
 }
 
+function StoryCaptureScreen({ result }: { result: TeaResult }) {
+  const qrSrc = `${import.meta.env.BASE_URL}qr/${result.id}.svg`;
+
+  return (
+    <main className={`story-capture-shell ${result.id}`}>
+      <div className="story-lattice" aria-hidden="true" />
+      <header className="story-header">
+        <span>{appConfig.appTitle}</span>
+        <small>{appConfig.appSubtitle}</small>
+      </header>
+      <section className="story-result-card">
+        <StoryCharacter result={result} />
+        <div className="story-copy">
+          <TeaSymbol teaName={result.teaName} />
+          <h1>{result.resultTitle}</h1>
+          <p>
+            {result.storyDescription.map((line) => (
+              <React.Fragment key={line}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </p>
+          <div className="tag-row">
+            {result.tags.map((tag) => (
+              <span key={tag}>#{tag}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+      <footer className="story-footer">
+        <div>
+          <strong>나도 테스트하기</strong>
+          <span>QR로 결과 보고 바로 참여하기</span>
+        </div>
+        <img src={qrSrc} alt="차BTI 결과 링크 QR" />
+      </footer>
+    </main>
+  );
+}
+
 function StartScreen({ onStart }: { onStart: () => void }) {
   return (
     <main className="app-shell start-screen">
       <section className="hero">
+        <div className="lattice-window" aria-hidden="true" />
         <div className="brand-mark">茶</div>
         <p className="eyebrow">ChaoReum Tea Club</p>
         <h1>{appConfig.appTitle}</h1>
         <p className="subtitle">{appConfig.appSubtitle}</p>
-        <p className="intro">8개의 선택으로 지금 취향에 맞는 차를 찾아보세요.</p>
+        <p className="intro">{questions.length}개의 선택으로 지금 취향에 맞는 차를 찾아보세요.</p>
         <button className="primary-button" type="button" onClick={onStart}>
           시작하기
         </button>
@@ -237,6 +334,7 @@ function QuestionScreen({
         <div className="progress-track" aria-hidden="true">
           <div className="progress-fill" style={{ width: `${progress}%` }} />
         </div>
+        <p className="question-kicker">Tea preference note</p>
         <h2>{question.text}</h2>
         <div className="answer-list">
           {question.answers.map((answer, index) => (
@@ -287,15 +385,18 @@ function ResultScreen({
   return (
     <main className="app-shell result-screen">
       <section className={`result-hero ${result.id}`}>
-        <p className="eyebrow">{appConfig.appTitle}</p>
-        <TeaSymbol teaName={result.teaName} />
-        <h1>{result.resultTitle}</h1>
-        <p className="result-copy">{result.resultDescription}</p>
-        <div className="tag-row">
-          {result.tags.map((tag) => (
-            <span key={tag}>#{tag}</span>
-          ))}
+        <div className="result-hero-copy">
+          <p className="eyebrow">{appConfig.appTitle}</p>
+          <TeaSymbol teaName={result.teaName} />
+          <h1>{result.resultTitle}</h1>
+          <p className="result-copy">{result.resultDescription}</p>
+          <div className="tag-row">
+            {result.tags.map((tag) => (
+              <span key={tag}>#{tag}</span>
+            ))}
+          </div>
         </div>
+        <ResultCharacter result={result} />
       </section>
 
       <section className="result-details">
@@ -352,12 +453,40 @@ function ResultScreen({
           </button>
         </div>
         <button className="primary-button wide" type="button" onClick={onRestart}>
-          나도 검사하러 가기
+          나도 검사하기
         </button>
       </section>
 
       {topScores.length > 0 && <ScoreDetails topScores={topScores} />}
     </main>
+  );
+}
+
+function StoryCharacter({ result }: { result: TeaResult }) {
+  const character = resultCharacterAssets[result.id];
+  if (!character) return null;
+
+  return (
+    <figure
+      className="story-character"
+      style={{ "--character-position": character.position } as React.CSSProperties}
+    >
+      <img src={character.src} alt={`${result.teaName} 캐릭터`} />
+    </figure>
+  );
+}
+
+function ResultCharacter({ result }: { result: TeaResult }) {
+  const character = resultCharacterAssets[result.id];
+  if (!character) return null;
+
+  return (
+    <figure
+      className="result-character"
+      style={{ "--character-position": character.position } as React.CSSProperties}
+    >
+      <img src={character.src} alt={`${result.teaName} 캐릭터`} />
+    </figure>
   );
 }
 

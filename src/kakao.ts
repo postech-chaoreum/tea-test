@@ -119,18 +119,13 @@ function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput) {
         },
       ],
     },
-    social: {
-      likeCount: 286,
-      commentCount: 45,
-      sharedCount: 845,
-    },
     buttons: [
       {
-        title: "결과 자세히 보기",
+        title: "내 결과 자세히 보기",
         link: buildLink(resultUrl),
       },
       {
-        title: "나도 검사하러 가기",
+        title: "나도 검사하기",
         link: buildLink(getTestHomeUrl()),
       },
     ],
