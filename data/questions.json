@@ -1,63 +1,36 @@
 [
   {
     "id": "q1",
-    "text": "찻잔을 들었을 때, 먼저 반가울 향은?",
+    "text": "예상치 못한 문제에 부딪혔을 때, 당신의 첫 반응은?",
     "answers": [
       {
-        "id": "q1-a1",
-        "text": "비 온 뒤 풀잎처럼 싱그러운 향",
+        "id": "q1-a",
+        "text": "날카롭고 빠른 해결",
         "scores": {
           "groups": {
-            "greenTeas": 2,
-            "grassy": 3,
-            "clean": 1
+            "clarity": 1,
+            "directness": 1,
+            "focus": 1
           },
           "teas": {
-            "greenTea": 1
+            "green_tea_ujeon": 3,
+            "powdered_tea_matcha": 1,
+            "herbal_tea_peppermint": 1
           }
         }
       },
       {
-        "id": "q1-a2",
-        "text": "은은하게 퍼지는 꽃향",
+        "id": "q1-b",
+        "text": "조율과 유연한 대처",
         "scores": {
           "groups": {
-            "floral": 4,
-            "calm": 1,
-            "greenTeas": 1,
-            "herbalTeas": 1
+            "adaptability": 1,
+            "depth": 1,
+            "maturity": 1
           },
           "teas": {
-            "jasmineTea": 2,
-            "chamomile": 1
-          }
-        }
-      },
-      {
-        "id": "q1-a3",
-        "text": "달콤하고 산뜻한 과일향",
-        "scores": {
-          "groups": {
-            "fruitTeas": 2,
-            "fruity": 3,
-            "refreshing": 1
-          },
-          "teas": {
-            "fruitBlend": 1
-          }
-        }
-      },
-      {
-        "id": "q1-a4",
-        "text": "깊고 차분한 흙/나무 향",
-        "scores": {
-          "groups": {
-            "puerhTeas": 2,
-            "earthy": 3,
-            "rich": 1
-          },
-          "teas": {
-            "puerhTea": 1
+            "dark_tea_ripe_puer": 1,
+            "oolong_tea_dahongpao": 1
           }
         }
       }
@@ -65,60 +38,32 @@
   },
   {
     "id": "q2",
-    "text": "차를 마신 뒤 남았으면 하는 느낌은?",
+    "text": "당신이 선호하는 '성장'의 이미지는 무엇인가요?",
     "answers": [
       {
-        "id": "q2-a1",
-        "text": "머리가 맑아지는 느낌",
+        "id": "q2-a",
+        "text": "새싹 같은 생동감",
         "scores": {
           "groups": {
-            "focused": 3,
-            "clean": 2
+            "vitality": 1,
+            "brightness": 1,
+            "naturalness": 1
           },
           "teas": {
-            "greenTea": 1
+            "green_tea_ujeon": 4
           }
         }
       },
       {
-        "id": "q2-a2",
-        "text": "몸이 따뜻하게 풀리는 느낌",
+        "id": "q2-b",
+        "text": "시간이 만든 깊이",
         "scores": {
           "groups": {
-            "cozy": 3,
-            "hotFriendly": 2
+            "depth": 1,
+            "maturity": 1
           },
           "teas": {
-            "hojicha": 1,
-            "rooibos": 1
-          }
-        }
-      },
-      {
-        "id": "q2-a3",
-        "text": "답답함이 가볍게 사라지는 느낌",
-        "scores": {
-          "groups": {
-            "refreshing": 3,
-            "icedFriendly": 1,
-            "minty": 2
-          },
-          "teas": {
-            "mintTea": 1
-          }
-        }
-      },
-      {
-        "id": "q2-a4",
-        "text": "낯선 맛이 오래 남는 느낌",
-        "scores": {
-          "groups": {
-            "adventurous": 3,
-            "oolongTeas": 1,
-            "puerhTeas": 1
-          },
-          "teas": {
-            "oolongTea": 1
+            "dark_tea_ripe_puer": 2
           }
         }
       }
@@ -126,59 +71,34 @@
   },
   {
     "id": "q3",
-    "text": "평소 카페에서 고르는 쪽에 가까운 건?",
+    "text": "당신이 생각하는 사람의 가장 큰 매력은 무엇인가요?",
     "answers": [
       {
-        "id": "q3-a1",
-        "text": "아메리카노처럼 깔끔한 메뉴",
+        "id": "q3-a",
+        "text": "화사한 첫인상",
         "scores": {
           "groups": {
-            "clean": 3,
-            "bitter": 1,
-            "focused": 1
-          },
-          "teas": {}
-        }
-      },
-      {
-        "id": "q3-a2",
-        "text": "라떼처럼 부드럽고 든든한 메뉴",
-        "scores": {
-          "groups": {
-            "rich": 3,
-            "sweet": 1,
-            "blackTeas": 1
+            "brightness": 1,
+            "elegance": 1
           },
           "teas": {
-            "assamMilkTea": 1
+            "oolong_tea_oriental_beauty": 4,
+            "black_tea_darjeeling": 4
           }
         }
       },
       {
-        "id": "q3-a3",
-        "text": "에이드처럼 상큼한 메뉴",
+        "id": "q3-b",
+        "text": "알수록 깊은 매력",
         "scores": {
           "groups": {
-            "fruity": 2,
-            "citrusy": 2,
-            "refreshing": 2
+            "depth": 1,
+            "maturity": 1,
+            "warmth": 1
           },
           "teas": {
-            "fruitBlend": 1
-          }
-        }
-      },
-      {
-        "id": "q3-a4",
-        "text": "시즌 한정 메뉴처럼 새로운 메뉴",
-        "scores": {
-          "groups": {
-            "adventurous": 2,
-            "floral": 1,
-            "sweet": 1
-          },
-          "teas": {
-            "oolongTea": 1
+            "oolong_tea_dahongpao": 2,
+            "dark_tea_ripe_puer": 2
           }
         }
       }
@@ -186,62 +106,35 @@
   },
   {
     "id": "q4",
-    "text": "좋아하는 맛의 무게감은?",
+    "text": "당신이 가장 편안함을 느끼는 공간의 향기는 무엇인가요?",
     "answers": [
       {
-        "id": "q4-a1",
-        "text": "가볍고 산뜻한 맛",
+        "id": "q4-a",
+        "text": "꽃집의 싱그러움",
         "scores": {
           "groups": {
-            "light": 3,
-            "clean": 2
+            "naturalness": 1,
+            "clarity": 1,
+            "delicacy": 1
           },
           "teas": {
-            "greenTea": 1
+            "green_tea_ujeon": 2,
+            "white_tea_baihao_yinzhen": 3
           }
         }
       },
       {
-        "id": "q4-a2",
-        "text": "구수하고 편안한 맛",
+        "id": "q4-b",
+        "text": "카페와 벽난로의 구수함",
         "scores": {
           "groups": {
-            "roasted": 3,
-            "nutty": 2,
-            "cozy": 1
+            "warmth": 1,
+            "depth": 1,
+            "craft": 1
           },
           "teas": {
-            "hojicha": 1
-          }
-        }
-      },
-      {
-        "id": "q4-a3",
-        "text": "진하고 묵직한 맛",
-        "scores": {
-          "groups": {
-            "rich": 3,
-            "earthy": 1,
-            "bitter": 1
-          },
-          "teas": {
-            "matcha": 1,
-            "puerhTea": 1
-          }
-        }
-      },
-      {
-        "id": "q4-a4",
-        "text": "달콤하고 향이 또렷한 맛",
-        "scores": {
-          "groups": {
-            "sweet": 3,
-            "fruity": 1,
-            "floral": 1
-          },
-          "teas": {
-            "fruitBlend": 1,
-            "rooibos": 1
+            "oolong_tea_dahongpao": 2,
+            "dark_tea_ripe_puer": 2
           }
         }
       }
@@ -249,59 +142,37 @@
   },
   {
     "id": "q5",
-    "text": "잠깐 쉬어간다면, 지금 필요한 건?",
+    "text": "당신의 인생 모토에 더 가까운 것은?",
     "answers": [
       {
-        "id": "q5-a1",
-        "text": "차분히 정리되는 시간",
+        "id": "q5-a",
+        "text": "본연의 모습",
         "scores": {
           "groups": {
-            "calm": 3,
-            "light": 1
+            "naturalness": 1,
+            "delicacy": 1,
+            "adaptability": 1
           },
           "teas": {
-            "chamomile": 3
+            "white_tea_baihao_yinzhen": 3,
+            "green_tea_ujeon": 1
           }
         }
       },
       {
-        "id": "q5-a2",
-        "text": "다시 집중할 수 있는 충전",
+        "id": "q5-b",
+        "text": "단련으로 만든 가치",
         "scores": {
           "groups": {
-            "focused": 2,
-            "rich": 1
+            "transformation": 1,
+            "craft": 1,
+            "depth": 1
           },
           "teas": {
-            "matcha": 1
-          }
-        }
-      },
-      {
-        "id": "q5-a3",
-        "text": "안 마셔본 걸 시도하는 재미",
-        "scores": {
-          "groups": {
-            "adventurous": 3
-          },
-          "teas": {
-            "oolongTea": 1,
-            "puerhTea": 1
-          }
-        }
-      },
-      {
-        "id": "q5-a4",
-        "text": "포근하게 쉬어가는 안정감",
-        "scores": {
-          "groups": {
-            "cozy": 2,
-            "calm": 2,
-            "herbalTeas": 1
-          },
-          "teas": {
-            "rooibos": 1,
-            "hojicha": 1
+            "oolong_tea_oriental_beauty": 5,
+            "oolong_tea_dahongpao": 2,
+            "dark_tea_ripe_puer": 1,
+            "powdered_tea_matcha": 1
           }
         }
       }
@@ -309,117 +180,36 @@
   },
   {
     "id": "q6",
-    "text": "디저트와 함께 마신다면?",
+    "text": "친구와 대화할 때, 당신은 어떤 편인가요?",
     "answers": [
       {
-        "id": "q6-a1",
-        "text": "과일 디저트",
+        "id": "q6-a",
+        "text": "부드러운 분위기 주도",
         "scores": {
           "groups": {
-            "fruity": 3,
-            "refreshing": 1
+            "sweetness": 1,
+            "elegance": 1,
+            "adaptability": 1
           },
           "teas": {
-            "fruitBlend": 1
+            "oolong_tea_oriental_beauty": 5,
+            "black_tea_darjeeling": 4
           }
         }
       },
       {
-        "id": "q6-a2",
-        "text": "케이크나 쿠키",
+        "id": "q6-b",
+        "text": "핵심과 주관",
         "scores": {
           "groups": {
-            "blackTeas": 2,
-            "sweet": 2
+            "directness": 1,
+            "focus": 1,
+            "depth": 1
           },
           "teas": {
-            "assamMilkTea": 1,
-            "earlGrey": 1
-          }
-        }
-      },
-      {
-        "id": "q6-a3",
-        "text": "견과류나 구운 과자",
-        "scores": {
-          "groups": {
-            "roasted": 3,
-            "nutty": 3
-          },
-          "teas": {
-            "hojicha": 1,
-            "oolongTea": 1
-          }
-        }
-      },
-      {
-        "id": "q6-a4",
-        "text": "초콜릿처럼 진한 디저트",
-        "scores": {
-          "groups": {
-            "rich": 3,
-            "blackTeas": 1,
-            "puerhTeas": 1
-          },
-          "teas": {
-            "matcha": 1
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "q7",
-    "text": "차 온도 취향은?",
-    "answers": [
-      {
-        "id": "q7-a1",
-        "text": "따뜻한 차가 좋다",
-        "scores": {
-          "groups": {
-            "hotFriendly": 3,
-            "cozy": 1
-          },
-          "teas": {
-            "chamomile": 1
-          }
-        }
-      },
-      {
-        "id": "q7-a2",
-        "text": "아이스티가 좋다",
-        "scores": {
-          "groups": {
-            "icedFriendly": 3,
-            "refreshing": 1
-          },
-          "teas": {}
-        }
-      },
-      {
-        "id": "q7-a3",
-        "text": "계절에 따라 다르다",
-        "scores": {
-          "groups": {
-            "clean": 1,
-            "light": 1,
-            "cozy": 1
-          },
-          "teas": {}
-        }
-      },
-      {
-        "id": "q7-a4",
-        "text": "향만 좋으면 온도는 상관없다",
-        "scores": {
-          "groups": {
-            "floral": 1,
-            "fruity": 1,
-            "grassy": 1,
-            "roasted": 1
-          },
-          "teas": {
-            "jasmineTea": 1
+            "oolong_tea_dahongpao": 2,
+            "powdered_tea_matcha": 3,
+            "herbal_tea_peppermint": 1
           }
         }
       }
@@ -427,61 +217,193 @@
   },
   {
     "id": "q8",
-    "text": "마지막으로, 끌리는 문장은?",
+    "text": "당신의 내공은 어디서 나온다고 생각하시나요?",
     "answers": [
       {
-        "id": "q8-a1",
-        "text": "조용하지만 또렷한 취향",
+        "id": "q8-a",
+        "text": "지식과 직관의 순발력",
         "scores": {
           "groups": {
-            "focused": 2,
-            "clean": 2
+            "vitality": 1,
+            "clarity": 1,
+            "focus": 1
           },
           "teas": {
-            "greenTea": 1
+            "green_tea_ujeon": 2,
+            "white_tea_baihao_yinzhen": 3
           }
         }
       },
       {
-        "id": "q8-a2",
-        "text": "포근하고 익숙한 안정감",
+        "id": "q8-b",
+        "text": "경험과 시행착오의 깊이",
         "scores": {
           "groups": {
-            "cozy": 3,
-            "sweet": 1
+            "maturity": 1,
+            "depth": 1,
+            "transformation": 1
           },
           "teas": {
-            "hojicha": 1,
-            "rooibos": 1
+            "dark_tea_ripe_puer": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "q9",
+    "text": "새로운 환경에 처했을 때, 당신은 보통 어떻게 반응하나요?",
+    "answers": [
+      {
+        "id": "q9-a",
+        "text": "빠르게 수용하고 정체성 고정",
+        "scores": {
+          "groups": {
+            "clarity": 1,
+            "focus": 1,
+            "directness": 1,
+            "refreshment": 1
+          },
+          "teas": {
+            "green_tea_ujeon": 1,
+            "powdered_tea_matcha": 2,
+            "herbal_tea_peppermint": 5
           }
         }
       },
       {
-        "id": "q8-a3",
-        "text": "밝고 산뜻한 기분 전환",
+        "id": "q9-b",
+        "text": "서서히 스며드는 변화",
         "scores": {
           "groups": {
-            "refreshing": 3,
-            "fruity": 1
+            "adaptability": 1,
+            "naturalness": 1,
+            "sweetness": 1,
+            "depth": 1
           },
           "teas": {
-            "fruitBlend": 1,
-            "mintTea": 1
+            "white_tea_baihao_yinzhen": 1,
+            "oolong_tea_oriental_beauty": 3,
+            "oolong_tea_dahongpao": 2,
+            "black_tea_darjeeling": 4,
+            "dark_tea_ripe_puer": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "q10",
+    "text": "목표를 이루기 위해 본인을 강하게 밀어붙여야 하는 상황이 온다면?",
+    "answers": [
+      {
+        "id": "q10-a",
+        "text": "페이스 유지와 스트레스 최소화",
+        "scores": {
+          "groups": {
+            "naturalness": 1,
+            "delicacy": 1,
+            "adaptability": 1,
+            "refreshment": 1
+          },
+          "teas": {
+            "white_tea_baihao_yinzhen": 3,
+            "green_tea_ujeon": 1,
+            "herbal_tea_peppermint": 2
           }
         }
       },
       {
-        "id": "q8-a4",
-        "text": "깊고 낯선 여운",
+        "id": "q10-b",
+        "text": "강한 단련으로 결과 만들기",
         "scores": {
           "groups": {
-            "adventurous": 2,
-            "earthy": 2,
-            "rich": 1
+            "transformation": 1,
+            "craft": 1,
+            "focus": 1,
+            "directness": 1
           },
           "teas": {
-            "puerhTea": 1,
-            "oolongTea": 1
+            "powdered_tea_matcha": 4,
+            "oolong_tea_dahongpao": 2,
+            "black_tea_darjeeling": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "q11",
+    "text": "당신이 무언가 도구를 사용할 때, 가장 중요하게 생각하는 가치는?",
+    "answers": [
+      {
+        "id": "q11-a",
+        "text": "직관적이고 가벼운 스타일",
+        "scores": {
+          "groups": {
+            "clarity": 1,
+            "delicacy": 1,
+            "refreshment": 1,
+            "naturalness": 1
+          },
+          "teas": {
+            "green_tea_ujeon": 1,
+            "white_tea_baihao_yinzhen": 2,
+            "herbal_tea_peppermint": 4
+          }
+        }
+      },
+      {
+        "id": "q11-b",
+        "text": "묵직하고 손때 묻는 스타일",
+        "scores": {
+          "groups": {
+            "craft": 1,
+            "warmth": 1,
+            "depth": 1,
+            "focus": 1
+          },
+          "teas": {
+            "oolong_tea_dahongpao": 2,
+            "dark_tea_ripe_puer": 1,
+            "powdered_tea_matcha": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "q12",
+    "text": "당신이 가장 에너지를 얻는 풍경은 어떤 모습인가요?",
+    "answers": [
+      {
+        "id": "q12-a",
+        "text": "가까운 산책로와 평온한 들판",
+        "scores": {
+          "groups": {
+            "vitality": 1,
+            "naturalness": 1,
+            "delicacy": 1
+          },
+          "teas": {
+            "green_tea_ujeon": 2,
+            "white_tea_baihao_yinzhen": 2
+          }
+        }
+      },
+      {
+        "id": "q12-b",
+        "text": "바위산과 고산지대",
+        "scores": {
+          "groups": {
+            "landscape_mystique": 1,
+            "depth": 1,
+            "maturity": 1
+          },
+          "teas": {
+            "oolong_tea_dahongpao": 2,
+            "dark_tea_ripe_puer": 1,
+            "black_tea_darjeeling": 5
           }
         }
       }

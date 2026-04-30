@@ -346,6 +346,38 @@ button {
   --result-accent: #66aa95;
 }
 
+.green_tea_ujeon {
+  --result-accent: #83a95c;
+}
+
+.white_tea_baihao_yinzhen {
+  --result-accent: #9ab66a;
+}
+
+.oolong_tea_dahongpao {
+  --result-accent: #9b6f52;
+}
+
+.oolong_tea_oriental_beauty {
+  --result-accent: #cf7a74;
+}
+
+.black_tea_darjeeling {
+  --result-accent: #8c6f74;
+}
+
+.dark_tea_ripe_puer {
+  --result-accent: #7d5f4b;
+}
+
+.herbal_tea_peppermint {
+  --result-accent: #68aa92;
+}
+
+.powdered_tea_matcha {
+  --result-accent: #6d8f35;
+}
+
 .result-details {
   display: grid;
   gap: 12px;

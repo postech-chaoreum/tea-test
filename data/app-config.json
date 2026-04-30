@@ -1,8 +1,8 @@
 {
   "appTitle": "차오름 차BTI",
   "appSubtitle": "이 차는 이제 제겁니다",
-  "questionCount": 8,
-  "resultCount": 12,
+  "questionCount": 11,
+  "resultCount": 8,
   "resultTitlePattern": "형용사 + 차 이름 + 타입",
   "resultTone": "적당한 캐릭터화",
   "visualTone": {
