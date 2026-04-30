@@ -24,6 +24,8 @@ type KakaoShareInput = {
   resultUrl: string;
 };
 
+const productionSiteUrl = "https://postech-chaoreum.github.io/tea-test/";
+
 let sdkLoadPromise: Promise<KakaoSdk> | null = null;
 
 export async function shareToKakao({ config, result, resultUrl }: KakaoShareInput) {
@@ -85,8 +87,9 @@ function loadKakaoSdk(sdkUrl: string) {
 
 function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput) {
   const imageUrl = getKakaoShareImageUrl(config, result);
+  const canonicalResultUrl = getCanonicalSiteUrl(resultUrl);
+  const canonicalHomeUrl = getCanonicalSiteUrl(getTestHomeUrl());
   const description = result.storyDescription.join(" ");
-  const firstProduct = result.productRecommendations[0]?.name ?? result.teaName;
 
   return {
     objectType: "feed",
@@ -96,37 +99,16 @@ function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput) {
       imageUrl,
       imageWidth: 800,
       imageHeight: 800,
-      link: buildLink(resultUrl),
-    },
-    itemContent: {
-      profileText: config.appTitle,
-      profileImageUrl: imageUrl,
-      titleImageUrl: imageUrl,
-      titleImageText: result.teaName,
-      titleImageCategory: "차BTI",
-      items: [
-        {
-          item: "추천 차",
-          itemOp: result.teaName,
-        },
-        {
-          item: "추천 제품",
-          itemOp: firstProduct,
-        },
-        {
-          item: "포인트",
-          itemOp: result.tags.map((tag) => `#${tag}`).join(" "),
-        },
-      ],
+      link: buildLink(canonicalResultUrl),
     },
     buttons: [
       {
-        title: "내 결과 자세히 보기",
-        link: buildLink(resultUrl),
+        title: "웹으로 보기",
+        link: buildLink(canonicalResultUrl),
       },
       {
         title: "나도 검사하기",
-        link: buildLink(getTestHomeUrl()),
+        link: buildLink(canonicalHomeUrl),
       },
     ],
     serverCallbackArgs: {
@@ -169,7 +151,7 @@ function getTestHomeUrl() {
 
 function getKakaoShareImageUrl(config: AppConfig, result: TeaResult) {
   if (config.sharing.storyImage.enabled) {
-    return getStoryImageUrl(result.id);
+    return getCanonicalSiteUrl(getStoryImageUrl(result.id));
   }
 
   const imagePath = config.sharing.kakaoTalk.defaultImagePath;
@@ -178,5 +160,24 @@ function getKakaoShareImageUrl(config: AppConfig, result: TeaResult) {
   }
 
   const normalizedPath = imagePath.replace(/^\//, "");
-  return new URL(`${import.meta.env.BASE_URL}${normalizedPath}`, window.location.href).toString();
+  return getCanonicalSiteUrl(
+    new URL(`${import.meta.env.BASE_URL}${normalizedPath}`, window.location.href).toString(),
+  );
+}
+
+function getCanonicalSiteUrl(url: string) {
+  const sourceUrl = new URL(url, window.location.href);
+  const canonicalUrl = new URL(productionSiteUrl);
+  const basePath = canonicalUrl.pathname.replace(/\/$/, "");
+  const sourcePath = sourceUrl.pathname.replace(/\/$/, "");
+  const sourcePathWithoutBase = sourcePath.startsWith(basePath)
+    ? sourcePath.slice(basePath.length)
+    : sourcePath;
+
+  const combinedPath = `${basePath}${sourcePathWithoutBase}`;
+  canonicalUrl.pathname =
+    combinedPath.endsWith("/") || sourcePathWithoutBase ? combinedPath : `${combinedPath}/`;
+  canonicalUrl.search = sourceUrl.search;
+  canonicalUrl.hash = sourceUrl.hash;
+  return canonicalUrl.toString();
 }
