@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { appConfig, questions, teaResults } from "./data";
-import { setupKakaoShareButton } from "./kakao";
+import { shareToKakao } from "./kakao";
 import { calculateResult } from "./scoring";
 import { createStoryBlob } from "./storyImage";
 import type { Answer, ScoredResult, TeaResult } from "./types";
@@ -205,6 +205,20 @@ function App() {
     await downloadStoryImage();
   };
 
+  const shareResult = async () => {
+    if (!result) return;
+
+    try {
+      await shareToKakao({
+        config: appConfig,
+        result,
+        resultUrl: getResultUrl(result.id),
+      });
+    } catch (error) {
+      showToast(error instanceof Error ? error.message : "카카오톡 공유에 실패했어요.");
+    }
+  };
+
   if (isStoryCapture && initialResult) {
     return <StoryCaptureScreen result={initialResult} />;
   }
@@ -225,9 +239,9 @@ function App() {
           scoredResults={scoredResults}
           onCopyResultLink={copyResultLink}
           onDownloadStoryImage={downloadStoryImage}
-          onKakaoShareError={showToast}
           onOpenSimilarResult={openSimilarResult}
           onRestart={goToStart}
+          onShareKakaoResult={shareResult}
           onShareStoryImage={shareStoryImage}
         />
       )}
@@ -346,24 +360,20 @@ function ResultScreen({
   scoredResults,
   onCopyResultLink,
   onDownloadStoryImage,
-  onKakaoShareError,
   onOpenSimilarResult,
   onRestart,
+  onShareKakaoResult,
   onShareStoryImage,
 }: {
   result: TeaResult;
   scoredResults: ScoredResult[];
   onCopyResultLink: () => void;
   onDownloadStoryImage: () => void;
-  onKakaoShareError: (message: string) => void;
   onOpenSimilarResult: (resultId: string) => void;
   onRestart: () => void;
+  onShareKakaoResult: () => void;
   onShareStoryImage: () => void;
 }) {
-  const kakaoShareButtonId = useMemo(
-    () => `kakaotalk-sharing-btn-${result.id}`,
-    [result.id],
-  );
   const similarResults = useMemo(
     () =>
       result.similarTeaIds
@@ -372,24 +382,6 @@ function ResultScreen({
     [result.similarTeaIds],
   );
   const topScores = scoredResults.slice(0, 3);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    setupKakaoShareButton({
-      config: appConfig,
-      container: `#${kakaoShareButtonId}`,
-      result,
-      resultUrl: getResultUrl(result.id),
-    }).catch((error) => {
-      if (!isMounted) return;
-      onKakaoShareError(error instanceof Error ? error.message : "카카오톡 공유에 실패했어요.");
-    });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [kakaoShareButtonId, onKakaoShareError, result]);
 
   return (
     <main className="app-shell result-screen">
@@ -448,7 +440,7 @@ function ResultScreen({
       <section className="share-panel">
         <h2>결과 공유</h2>
         <div className="share-grid">
-          <button className="secondary-button" id={kakaoShareButtonId} type="button">
+          <button className="secondary-button" type="button" onClick={onShareKakaoResult}>
             결과 카카오톡 공유
           </button>
           <button className="secondary-button" type="button" onClick={onCopyResultLink}>

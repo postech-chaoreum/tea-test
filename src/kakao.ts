@@ -26,13 +26,11 @@ type KakaoFeedTemplate = {
 };
 
 type KakaoSharePayload = Record<string, unknown>;
-type KakaoShareButtonPayload = KakaoFeedTemplate & { container: string };
 
 type KakaoSdk = {
   init: (javascriptKey: string) => void;
   isInitialized: () => boolean;
   Share: {
-    createDefaultButton: (payload: KakaoShareButtonPayload) => void;
     sendDefault: (payload: KakaoFeedTemplate) => void;
     sendCustom: (payload: KakaoSharePayload) => void;
   };
@@ -48,10 +46,6 @@ type KakaoShareInput = {
   config: AppConfig;
   result: TeaResult;
   resultUrl: string;
-};
-
-type KakaoShareButtonInput = KakaoShareInput & {
-  container: string;
 };
 
 const productionSiteUrl = "https://postech-chaoreum.github.io/tea-test/";
@@ -86,33 +80,6 @@ export async function shareToKakao({ config, result, resultUrl }: KakaoShareInpu
   }
 
   Kakao.Share.sendDefault(buildDefaultTemplate({ config, result, resultUrl }));
-}
-
-export async function setupKakaoShareButton({
-  config,
-  container,
-  result,
-  resultUrl,
-}: KakaoShareButtonInput) {
-  const kakaoConfig = config.sharing.kakaoTalk;
-
-  if (!kakaoConfig.enabled) {
-    throw new Error("카카오톡 공유가 비활성화되어 있어요.");
-  }
-
-  if (!kakaoConfig.javascriptKey.trim()) {
-    throw new Error("카카오 JavaScript 키를 data/app-config.json에 설정해야 해요.");
-  }
-
-  const Kakao = await loadKakaoSdk(kakaoConfig.sdkUrl);
-  if (!Kakao.isInitialized()) {
-    Kakao.init(kakaoConfig.javascriptKey);
-  }
-
-  Kakao.Share.createDefaultButton({
-    container,
-    ...buildDefaultTemplate({ config, result, resultUrl }),
-  });
 }
 
 function loadKakaoSdk(sdkUrl: string) {
