@@ -1,14 +1,39 @@
 import type { AppConfig, TeaResult } from "./types";
 import { getStoryImageUrl } from "./storyImage";
 
+type KakaoWebLink = {
+  mobileWebUrl: string;
+  webUrl: string;
+};
+
+type KakaoFeedTemplate = {
+  objectType: "feed";
+  content: {
+    title: string;
+    description: string;
+    imageUrl: string;
+    imageWidth: number;
+    imageHeight: number;
+    link: KakaoWebLink;
+  };
+  buttons: Array<{
+    title: string;
+    link: KakaoWebLink;
+  }>;
+  serverCallbackArgs: {
+    result_id: string;
+  };
+};
+
 type KakaoSharePayload = Record<string, unknown>;
+type KakaoShareButtonPayload = KakaoFeedTemplate & { container: string };
 
 type KakaoSdk = {
   init: (javascriptKey: string) => void;
   isInitialized: () => boolean;
   Share: {
-    createDefaultButton: (payload: KakaoSharePayload) => void;
-    sendDefault: (payload: KakaoSharePayload) => void;
+    createDefaultButton: (payload: KakaoShareButtonPayload) => void;
+    sendDefault: (payload: KakaoFeedTemplate) => void;
     sendCustom: (payload: KakaoSharePayload) => void;
   };
 };
@@ -117,7 +142,7 @@ function loadKakaoSdk(sdkUrl: string) {
   return sdkLoadPromise;
 }
 
-function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput) {
+function buildDefaultTemplate({ config, result, resultUrl }: KakaoShareInput): KakaoFeedTemplate {
   const imageUrl = getKakaoShareImageUrl(config, result);
   const canonicalResultUrl = getCanonicalSiteUrl(resultUrl);
   const canonicalHomeUrl = getCanonicalSiteUrl(getTestHomeUrl());
@@ -167,7 +192,7 @@ function buildCustomTemplateArgs({ config, result, resultUrl }: KakaoShareInput)
   };
 }
 
-function buildLink(url: string) {
+function buildLink(url: string): KakaoWebLink {
   return {
     mobileWebUrl: url,
     webUrl: url,
